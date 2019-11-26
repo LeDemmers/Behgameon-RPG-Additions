@@ -1,0 +1,16 @@
+{
+  "station":"drpmedieval:simple_carpenter_workbench",
+  "category": "decorations",
+  "name": "birch_ships_helm",
+  "outputs": [
+    {
+      "item": "drpmedieval:birch_ships_helm"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "drpmedieval:birch_planks",
+      "count": 4
+    }
+  ]
+}

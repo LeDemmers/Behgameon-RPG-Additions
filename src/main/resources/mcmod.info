@@ -1,16 +1,17 @@
 [
 {
   "modid": "behgameon",
-  "name": "Behgameon Tweaks",
-  "description": "Adds the recipes and custom items to the Behgameon Modpack.",
-  "version": "1.1a",
+  "name": "Behgameon",
+  "description": "Adds the custom items to the Behgameon Modpack.",
+  "version": "1.0.1",
   "mcversion": "1.12.2",
   "url": "https://demme.rs/",
   "updateUrl": "",
   "authorList": ["DEMMERS"],
-  "credits": "Forge, FML, MMD Community",
+  "credits": "Forge, FML, MMD Community, AzureDoomC",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "requiredMods": [ "baubles" ],
+  "dependencies": [ "mmorpg", "baubles" ]
 }
 ]

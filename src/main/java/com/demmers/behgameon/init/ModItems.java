@@ -25,27 +25,39 @@ public final class ModItems {
 	public static NonNullList<ItemStack> variantList;
 	static {
 		List<Item> items = new ArrayList<Item>();
+		//Creates the belts
 		for (int i = 1; i <= 3; i++)
 			items.add(new BaublesBeltItem("accessory_" + i));
 		BehgameonMod.LOGGER.info("Registered Belts");
+		//Creates the Necklaces
 		for (int i = 4; i <= 8; i++)
 			items.add(new BaublesNecklaceItem("accessory_" + i));
 		BehgameonMod.LOGGER.info("Registered Necklaces");
+		//Creates the Bracelets
 		for (int i = 9; i <= 20; i++)
 			items.add(new BaublesBeltItem("accessory_" + i));
 		BehgameonMod.LOGGER.info("Registered Braclets");
+		//Creates the Amulets/Necklaces
 		for (int i = 21; i <= 32; i++)
 			items.add(new BaublesNecklaceItem("accessory_" + i));
 		BehgameonMod.LOGGER.info("Registered Amulets");
-		for (int i = 33; i <= 48; i++)
+		//Creates the Charms
+		for (int i = 33; i <= 44; i++)
 			items.add(new BaublesCharmItem("accessory_" + i));
 		BehgameonMod.LOGGER.info("Registered Charms");
+		//Creates the Unique Charms
+		for (int i = 45; i <= 48; i++)
+			items.add(new BaublesCharmItem("accessory_" + i));
+		BehgameonMod.LOGGER.info("Registered Charms");
+		//Creates the Unique Amulet
 		for (int i = 49; i <= 54; i++)
 			items.add(new BaublesNecklaceItem("accessory_" + i));
 		BehgameonMod.LOGGER.info("Registered Unique Amulets");
+		//Creates the Unique Charms
 		for (int i = 55; i <= 56; i++)
 			items.add(new BaublesCharmItem("accessory_" + i));
 		BehgameonMod.LOGGER.info("Registered Unique Charms");
+		//Creates the Rings
 		for (int i = 1; i <= 106; i++)
 			items.add(new BaublesRingItem("ring_" + i));
 		BehgameonMod.LOGGER.info("Registered rings");

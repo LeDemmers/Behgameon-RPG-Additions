@@ -24,18 +24,26 @@ import com.demmers.behgameon.init.Tab;
 @Mod(modid = BehgameonMod.MODID, name = BehgameonMod.NAME, version = BehgameonMod.VERSION, dependencies = BehgameonMod.DEPENDENCIES)
 public class BehgameonMod {
 
+	//Mod ID, never change as it will break old saves.
 	public static final String MODID = "behgameon";
+	//Mod name
 	public static final String NAME = "Behgameon";
+	//Verison number using SymVer MAJOR.MINOR.PATCH.
 	public static final String VERSION = "1.0.1";
+	//So no one tries to run this on 1.7.10
 	public static final String ACCEPTED_VERSIONS = "(1.12.2)";
+	//Makes the mod require that is loaded after baubles and mine and slash
 	public static final String DEPENDENCIES = "required:baubles;required-after:mmorpg";
+	//Creates a logger for logging things in the log for other classes.
 	public static final Logger LOGGER = LogManager.getLogger();
 
+	//this is for your tab
 	public static CreativeTabs TAB = new Tab(MODID);
 
 	@Instance
 	public static BehgameonMod instance;
-
+	
+	//this sets the proxies.
 	@SidedProxy(clientSide = "com.demmers.behgameon.proxy.ClientProxy", serverSide = "com.demmers.behgameon.proxy.CommonProxy")
 	public static CommonProxy proxy;
 
@@ -51,6 +59,7 @@ public class BehgameonMod {
 
 	@EventHandler
 	public static void PostInit(FMLPostInitializationEvent event) {
+		//Loader checks to see if Mine and Slash is loaded and if it is, checks the config setting to enable auto Mine and Slash stats.
 		if (Loader.isModLoaded("mmorpg") && ModConfig.USE_COMPATIBILITY) {
 			MinecraftForge.EVENT_BUS.register(new MineSlashHandler());
 		}

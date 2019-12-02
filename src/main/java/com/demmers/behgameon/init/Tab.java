@@ -20,12 +20,14 @@ public class Tab extends CreativeTabs {
 		super(label);
 	}
 
+	//Sets the tab name. itemGroup.behgameon
 	public String getTranslatedTabLabel() {
 		return "tab." + BehgameonMod.MODID;
 	}
 
 	@Override
 	public ItemStack getIcon() {
+		//This changes the tab icon based on your variantList aka all your items.
 		int ticks = Minecraft.getMinecraft().ingameGUI.getUpdateCounter();
 		if (ticks >= this.nextTicks) {
 			this.nextTicks = ticks + 8;
@@ -34,6 +36,7 @@ public class Tab extends CreativeTabs {
 
 			this.stack = ModItems.variantList.get(this.index);
 		}
+		//Gives the tab a search bar.
 		setBackgroundImageName("item_search.png");
 
 		return this.createIcon();
@@ -44,6 +47,7 @@ public class Tab extends CreativeTabs {
 		return this.stack;
 	}
 
+	//Gives the tab a search bar function.
 	@Override
 	public boolean hasSearchBar() {
 		return true;

@@ -23,18 +23,8 @@ minecraft {
     runDir = "run"
     mappings = "stable_39"
 }
-repositories{
-    maven {
-        url 'https://maven.mcmoddev.com' }
-    maven {
-        url = "http://maven.cil.li/" }
-    maven {
-        url = "http://dvs1.progwml6.com/files/maven" }
-}
 
 dependencies {
-      deobfCompile "com.azanor:Baubles:1.12-1.5.2"
-	  compile files("libs/Mine+and+Slash-1.12.2-1.8.9.jar") 
 }
 
 processResources {

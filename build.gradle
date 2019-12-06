@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.0.1"
+version = "1.0.2"
 group = "com.deemers.behgameon"
 archivesBaseName = "behgameon"
 
@@ -25,6 +25,8 @@ minecraft {
 }
 
 dependencies {
+      compile files("libs/Baubles-1.12-1.5.2.jar")
+	  compile files("libs/Mine+and+Slash-1.12.2-1.8.9.jar") 
 }
 
 processResources {

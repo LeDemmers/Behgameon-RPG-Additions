@@ -48,5 +48,6 @@ public class MineSlashHandler {
 		//Runs accessory_49 to 54 and sets them as Rings in Mine and Slash.
 		for (int i = 1; i <= 106; i++)
 			MineAndSlashAPI.addCompatibleItem(BehgameonMod.MODID + ":ring_" + i, new ConfigItem().setType(new Ring()));
+		BehgameonMod.LOGGER.info("Registered Everything with Mine and Slash");
 	}
 }

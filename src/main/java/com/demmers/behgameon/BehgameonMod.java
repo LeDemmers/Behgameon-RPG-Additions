@@ -1,6 +1,7 @@
 package com.demmers.behgameon;
 
 import com.demmers.behgameon.proxy.CommonProxy;
+import com.demmers.behgameon.util.LootHandler;
 import com.demmers.behgameon.util.MineSlashHandler;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -54,12 +55,16 @@ public class BehgameonMod {
 
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
-
+		// This adds our loot tables defined in LootHandler and placed in
+		// resources/assets/behgameon/loot_tables/inject
+		// main_loot is the master loot table, which is called in the tables.
+		MinecraftForge.EVENT_BUS.register(new LootHandler());
 	}
 
 	@EventHandler
 	public static void PostInit(FMLPostInitializationEvent event) {
-		//Loader checks to see if Mine and Slash is loaded and if it is, checks the config setting to enable auto Mine and Slash stats.
+		// Loader checks to see if Mine and Slash is loaded and if it is, checks the
+		// config setting to enable auto Mine and Slash stats.
 		if (Loader.isModLoaded("mmorpg") && ModConfig.USE_COMPATIBILITY) {
 			MinecraftForge.EVENT_BUS.register(new MineSlashHandler());
 		}

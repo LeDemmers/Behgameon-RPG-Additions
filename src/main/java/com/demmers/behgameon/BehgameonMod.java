@@ -1,73 +1,72 @@
 package com.demmers.behgameon;
 
-import com.demmers.behgameon.proxy.CommonProxy;
-import com.demmers.behgameon.util.LootHandler;
-import com.demmers.behgameon.util.MineSlashHandler;
-
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLPaths;
+import top.theillusivec4.curios.api.CuriosAPI;
+import top.theillusivec4.curios.api.imc.CurioIMCMessage;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.demmers.behgameon.init.ModConfig;
-import com.demmers.behgameon.init.ModItems;
-import com.demmers.behgameon.init.Tab;
+import com.demmers.behgameon.config.Config;
+import com.demmers.behgameon.util.MineSlashHandler;
 
-@Mod(modid = BehgameonMod.MODID, name = BehgameonMod.NAME, version = BehgameonMod.VERSION, dependencies = BehgameonMod.DEPENDENCIES)
+@Mod(BehgameonMod.MODID)
 public class BehgameonMod {
 
-	// Mod ID, never change as it will break old saves.
+	public static BehgameonMod instance;
 	public static final String MODID = "behgameon";
-	// Mod name
-	public static final String NAME = "Behgameon";
-	// Verison number using SymVer MAJOR.MINOR.PATCH.
-	public static final String VERSION = "1.0.2";
-	// So no one tries to run this on 1.7.10
-	public static final String ACCEPTED_VERSIONS = "(1.12.2)";
-	// Makes the mod require that is loaded after baubles and mine and slash
-	public static final String DEPENDENCIES = "required:baubles;required-after:mmorpg";
-	// Creates a logger for logging things in the log for other classes.
 	public static final Logger LOGGER = LogManager.getLogger();
 
-	// this is for your tab
-	public static CreativeTabs TAB = new Tab(MODID);
+	public BehgameonMod() {
+		{
+			instance = this;
+			ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.spec, "behgameon-config.toml");
+			Config.loadConfig(Config.spec, FMLPaths.CONFIGDIR.get().resolve("behgameon-config.toml").toString());
+			MinecraftForge.EVENT_BUS.register(this);
+		}
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
-	@Instance
-	public static BehgameonMod instance;
+		MinecraftForge.EVENT_BUS.register(this);
+	}
 
-	// this sets the proxies.
-	@SidedProxy(clientSide = "com.demmers.behgameon.proxy.ClientProxy", serverSide = "com.demmers.behgameon.proxy.CommonProxy")
-	public static CommonProxy proxy;
-
-	@EventHandler
-	public static void PreInit(FMLPreInitializationEvent event) {
+	private void setup(final FMLCommonSetupEvent event) {
 
 	}
 
-	@EventHandler
-	public static void init(FMLInitializationEvent event) {
-		// This adds our loot tables defined in LootHandler and placed in
-		// resources/assets/behgameon/loot_tables/inject
-		// main_loot is the master loot table, which is called in the tables.
-		MinecraftForge.EVENT_BUS.register(new LootHandler());
+	private void doClientStuff(final FMLClientSetupEvent event) {
+
 	}
 
-	@EventHandler
-	public static void PostInit(FMLPostInitializationEvent event) {
-		// Loader checks to see if Mine and Slash is loaded and if it is, checks the
-		// config setting to enable auto Mine and Slash stats.
-		if (Loader.isModLoaded("mmorpg") && ModConfig.USE_COMPATIBILITY) {
+	private void enqueueIMC(final InterModEnqueueEvent event) {
+		// If Curios is installed, then it will link the items to curios slots
+		if (ModList.get().isLoaded("curios")) {
+			InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("charm"));
+			InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("necklace"));
+			InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("bracelet"));
+			InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("belt"));
+			InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("ring").setSize(2));
+		}
+		if (ModList.get().isLoaded("mmorpg") && Config.INSTANCE.USE_COMPATIBILITY_ON_ITEMS.get()) {
 			MinecraftForge.EVENT_BUS.register(new MineSlashHandler());
 		}
+	}
+
+	private void processIMC(final InterModProcessEvent event) {
+
 	}
 
 }

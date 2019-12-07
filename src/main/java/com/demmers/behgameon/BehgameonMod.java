@@ -1,5 +1,11 @@
 package com.demmers.behgameon;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.demmers.behgameon.config.Config;
+import com.demmers.behgameon.util.MineSlashHandler;
+
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModList;
@@ -14,12 +20,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import top.theillusivec4.curios.api.CuriosAPI;
 import top.theillusivec4.curios.api.imc.CurioIMCMessage;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import com.demmers.behgameon.config.Config;
-import com.demmers.behgameon.util.MineSlashHandler;
 
 @Mod(BehgameonMod.MODID)
 public class BehgameonMod {

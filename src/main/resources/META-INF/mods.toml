@@ -10,3 +10,9 @@ authors="AzureDoomC"
 description='''
 Adds the custom items to the Behgameon Modpack.
 '''
+[[dependencies.mmorpg]]
+    modId="curios" 
+    mandatory=true 
+    versionRange="[FORGE-1.14.4-1.0,)" 
+    ordering="NONE"
+    side="BOTH"

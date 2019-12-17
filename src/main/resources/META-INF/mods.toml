@@ -1,0 +1,12 @@
+modLoader="javafml"
+loaderVersion="[29,)"
+[[mods]]
+modId="behgameon"
+version="${file.jarVersion}"
+displayName="Behgameon"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/behgameon"
+credits="DEMMERS"
+authors="AzureDoomC"
+description='''
+Adds the custom items to the Behgameon Modpack.
+'''

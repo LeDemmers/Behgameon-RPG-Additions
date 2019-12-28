@@ -4,7 +4,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.demmers.behgameon.config.Config;
-//import com.demmers.behgameon.util.MineSlashHandler;
+import com.demmers.behgameon.util.LootHandler;
+import com.demmers.behgameon.util.MineSlashHandler;
 
 import net.minecraftforge.common.MinecraftForge;
 //import net.minecraftforge.fml.InterModComms;
@@ -12,10 +13,8 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 //import top.theillusivec4.curios.api.CuriosAPI;
@@ -26,7 +25,7 @@ public class BehgameonMod {
 
 	public static BehgameonMod instance;
 	public static final String MODID = "behgameon";
-	public static final Logger LOGGER = LogManager.getLogger();
+	public static final Logger LOGGER = LogManager.getLogger(MODID);
 
 	public BehgameonMod() {
 		{
@@ -37,19 +36,12 @@ public class BehgameonMod {
 		}
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-
 		MinecraftForge.EVENT_BUS.register(this);
 	}
-
+	
 	private void setup(final FMLCommonSetupEvent event) {
-
-	}
-
-	private void doClientStuff(final FMLClientSetupEvent event) {
-
-	}
+		MinecraftForge.EVENT_BUS.register(LootHandler.class);
+    }
 
 	private void enqueueIMC(final InterModEnqueueEvent event) {
 		// If Curios is installed, then it will link the items to curios slots
@@ -61,12 +53,7 @@ public class BehgameonMod {
 			//InterModComms.sendTo("curios", CuriosAPI.IMC.REGISTER_TYPE, () -> new CurioIMCMessage("ring").setSize(2));
 		}
 		if (ModList.get().isLoaded("mmorpg") && Config.INSTANCE.USE_COMPATIBILITY_ON_ITEMS.get()) {
-			//MinecraftForge.EVENT_BUS.register(new MineSlashHandler());
+			MinecraftForge.EVENT_BUS.register(new MineSlashHandler());
 		}
 	}
-
-	private void processIMC(final InterModProcessEvent event) {
-
-	}
-
 }

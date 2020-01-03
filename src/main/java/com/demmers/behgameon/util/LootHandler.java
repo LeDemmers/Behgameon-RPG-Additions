@@ -43,7 +43,7 @@ public class LootHandler {
 	}
 
 	private static LootPool getInjectPool(String entryName) {
-		return LootPool.builder().addEntry(getInjectEntry(entryName, 1)).bonusRolls(0, 1).name("dothack_inject")
+		return LootPool.builder().addEntry(getInjectEntry(entryName, 1)).bonusRolls(0, 1).name("behgameon_inject")
 				.build();
 	}
 

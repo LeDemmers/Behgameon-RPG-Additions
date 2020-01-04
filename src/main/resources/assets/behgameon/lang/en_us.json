@@ -161,5 +161,21 @@
     "item.behgameon.ring_104": "Ring",
     "item.behgameon.ring_105": "Ring",
     "item.behgameon.ring_106": "Ring",
-    "itemGroup.behgameon": "Behgameon"
+    "itemGroup.accessories": "Behgameon Accessories",
+    "itemGroup.weapons": "Behgameon Weapons",
+    "item.behgameon.shield1": "Shield",
+    "item.behgameon.shield2": "Shield",
+    "item.behgameon.shield3": "Shield",
+    "item.behgameon.shield4": "Shield",
+    "item.behgameon.shield5": "Shield",
+    "item.behgameon.shield6": "Shield",
+    "item.behgameon.shield7": "Shield",
+    "item.behgameon.shield8": "Shield",
+    "item.behgameon.shield9": "Shield",
+    "item.behgameon.shield10": "Shield",
+    "item.behgameon.shield11": "Shield",
+    "item.behgameon.shield12": "Shield",
+    "item.behgameon.shield13": "Shield",
+    "item.behgameon.shield14": "Shield",
+    "item.behgameon.shield15": "Shield"
 }

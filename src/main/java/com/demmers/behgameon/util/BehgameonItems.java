@@ -1,0 +1,68 @@
+package com.demmers.behgameon.util;
+
+import com.demmers.behgameon.BehgameonMod;
+import com.demmers.behgameon.items.BaublesBeltItem;
+import com.demmers.behgameon.items.BaublesCharmItem;
+import com.demmers.behgameon.items.BaublesNecklaceItem;
+import com.demmers.behgameon.items.BaublesRingItem;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemShield;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+@Mod.EventBusSubscriber
+public final class BehgameonItems {
+
+	public static Item accessory;
+	public static Item shield;
+
+	@SubscribeEvent
+	public static void registerItems(final RegistryEvent.Register<Item> event) {
+		// Creates the belts
+		for (int i = 1; i <= 3; i++)
+			event.getRegistry().registerAll(
+					accessory = new BaublesBeltItem("accessory_" + i).setCreativeTab(BehgameonTab.ACCESSORIES));
+		// Creates the Necklaces
+		for (int i = 4; i <= 8; i++)
+			event.getRegistry()
+					.registerAll(new BaublesNecklaceItem("accessory_" + i).setCreativeTab(BehgameonTab.ACCESSORIES));
+		// Creates the Bracelets
+		for (int i = 9; i <= 20; i++)
+			event.getRegistry()
+					.registerAll(new BaublesBeltItem("accessory_" + i).setCreativeTab(BehgameonTab.ACCESSORIES));
+		// Creates the Amulets/Necklaces
+		for (int i = 21; i <= 32; i++)
+			event.getRegistry()
+					.registerAll(new BaublesNecklaceItem("accessory_" + i).setCreativeTab(BehgameonTab.ACCESSORIES));
+		// Creates the Charms
+		for (int i = 33; i <= 44; i++)
+			event.getRegistry()
+					.registerAll(new BaublesCharmItem("accessory_" + i).setCreativeTab(BehgameonTab.ACCESSORIES));
+		// Creates the Unique Charms
+		for (int i = 45; i <= 48; i++)
+			event.getRegistry()
+					.registerAll(new BaublesCharmItem("accessory_" + i).setCreativeTab(BehgameonTab.ACCESSORIES));
+		// Creates the Unique Amulet
+		for (int i = 49; i <= 54; i++)
+			event.getRegistry()
+					.registerAll(new BaublesNecklaceItem("accessory_" + i).setCreativeTab(BehgameonTab.ACCESSORIES));
+		// Creates the Unique Charms
+		for (int i = 55; i <= 56; i++)
+			event.getRegistry()
+					.registerAll(new BaublesCharmItem("accessory_" + i).setCreativeTab(BehgameonTab.ACCESSORIES));
+		for (int i = 1; i <= 106; i++)
+			event.getRegistry().register(new BaublesRingItem("ring_" + i).setCreativeTab(BehgameonTab.ACCESSORIES));
+		for (int i = 1; i <= 15; i++)
+			event.getRegistry().register(shield = new ItemShield().setRegistryName("shield" + i)
+					.setTranslationKey("shield" + i).setCreativeTab(BehgameonTab.WEAPONS));
+		BehgameonMod.LOGGER.info("All Items registered.");
+	}
+
+	public static ResourceLocation location(String name) {
+		return new ResourceLocation(BehgameonMod.MODID, name);
+	}
+
+}

@@ -813,6 +813,81 @@
                     "type": "item",
                     "weight": 1,
                     "name": "behgameon:ring_106"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield1"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield2"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield3"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield4"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield5"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield6"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield7"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield8"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield9"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield10"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield11"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield12"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield13"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield14"
+                },
+                {
+                    "type": "item",
+                    "weight": 1,
+                    "name": "behgameon:shield15"
                 }
             ]
         }

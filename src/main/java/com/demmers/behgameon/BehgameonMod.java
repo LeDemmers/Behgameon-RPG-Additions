@@ -24,10 +24,10 @@ public class BehgameonMod {
 	// Mod name
 	public static final String NAME = "Behgameon";
 	// Verison number using SymVer MAJOR.MINOR.PATCH.
-	public static final String VERSION = "1.0.5";
+	public static final String VERSION = "1.1.0";
 	// So no one tries to run this on 1.7.10
 	public static final String ACCEPTED_VERSIONS = "(1.12.2)";
-	// Makes the mod require that is loaded after baubles and mine and slash
+	// Makes the mod require that is loaded after baubles
 	public static final String DEPENDENCIES = "required:baubles";
 	// Creates a logger for logging things in the log for other classes.
 	public static final Logger LOGGER = LogManager.getLogger();

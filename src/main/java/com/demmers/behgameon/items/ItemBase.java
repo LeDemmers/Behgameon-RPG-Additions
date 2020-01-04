@@ -1,6 +1,7 @@
 package com.demmers.behgameon.items;
 
 import com.demmers.behgameon.BehgameonMod;
+import com.demmers.behgameon.util.BehgameonTab;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,7 +13,7 @@ public class ItemBase extends Item {
 		super();
 		this.setTranslationKey(name);
 		this.setRegistryName(new ResourceLocation(BehgameonMod.MODID, name));
-		this.setCreativeTab(BehgameonMod.TAB);
+		this.setCreativeTab(BehgameonTab.ACCESSORIES);
 	}
 
 	public String getTranslationKey(ItemStack stack) {

@@ -19,13 +19,13 @@ public class BehgameonItems {
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
 		for (int i = 1; i <= 56; i++)
 			event.getRegistry()
-					.registerAll(accessory_1 = new Item(new Item.Properties().group(BehgameonTabs.AccessoriesTabItemGroup))
+					.registerAll(accessory_1 = new Item(new Item.Properties().group(BehgameonTabs.AccessoriesTabItemGroup).maxDamage(1000))
 							.setRegistryName(location("accessory_" + i)));
 		for (int i = 1; i <= 106; i++)
-			event.getRegistry().register(new Item(new Item.Properties().group(BehgameonTabs.AccessoriesTabItemGroup))
+			event.getRegistry().register(new Item(new Item.Properties().group(BehgameonTabs.AccessoriesTabItemGroup).maxDamage(1000))
 					.setRegistryName(location("ring_" + i)));
 		for (int i = 1; i <= 15; i++)
-			event.getRegistry().register(shield = new ShieldItem(new Item.Properties().group(BehgameonTabs.WeaponTabItemGroup))
+			event.getRegistry().register(shield = new ShieldItem(new Item.Properties().group(BehgameonTabs.WeaponTabItemGroup).maxDamage(1000))
 					.setRegistryName(location("shield" + i)));
 		BehgameonMod.LOGGER.info("All Items registered.");
 	}

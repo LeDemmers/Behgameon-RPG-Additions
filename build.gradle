@@ -71,10 +71,9 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.1-30.0.17'
-	compile fg.deobf("top.theillusivec4.curios:curios:FORGE-1.15.1-2.0-beta")
-	//compile fg.deobf("curse.maven:MaS:2844167")
-
+    minecraft 'net.minecraftforge:forge:1.15.2-31.1.14'
+    compile fg.deobf("top.theillusivec4.curios:curios:FORGE-1.15.2-2.0-beta2")
+	compile fg.deobf("curse.maven:MaS:2879156")
 }
 
 jar {

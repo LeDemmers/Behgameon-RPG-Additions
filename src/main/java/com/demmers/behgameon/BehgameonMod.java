@@ -38,10 +38,10 @@ public class BehgameonMod {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
 		MinecraftForge.EVENT_BUS.register(this);
 	}
-	
+
 	private void setup(final FMLCommonSetupEvent event) {
 		MinecraftForge.EVENT_BUS.register(LootHandler.class);
-    }
+	}
 
 	private void enqueueIMC(final InterModEnqueueEvent event) {
 		// If Curios is installed, then it will link the items to curios slots

@@ -34,17 +34,17 @@ public class Config {
 
 		USE_COMPATIBILITY_ON_ITEMS = builder
 				.comment("Turns on Auto Compatibility for Mine and Slash stats. Turn off to configure yourself")
-				.translation("dothackweapons.compatibility.use_compatibility_on_items")
+				.translation("behgameon.compatibility.use_compatibility_on_items")
 				.define("USE_COMPATIBILITY_ON_ITEMS", true);
 
 		ACCESSORY_MAXDAMAGE = builder.comment("Sets the max duriabily of Accessories.")
-				.translation("dothackweapons.compatibility.accessory_maxdamage").define("ACCESSORY_MAXDAMAGE", 1000);
+				.translation("behgameon.compatibility.accessory_maxdamage").define("ACCESSORY_MAXDAMAGE", 1000);
 
 		RING_MAXDAMAGE = builder.comment("Sets the max duriabily of Rings.")
-				.translation("dothackweapons.compatibility.ring_maxdamage").define("RING_MAXDAMAGE", 1000);
+				.translation("behgameon.compatibility.ring_maxdamage").define("RING_MAXDAMAGE", 1000);
 
 		SHIELD_MAXDAMAGE = builder.comment("Sets the max duriabily of Shields.")
-				.translation("dothackweapons.compatibility.shields_maxdamage").define("SHIELD_MAXDAMAGE", 1000);
+				.translation("behgameon.compatibility.shields_maxdamage").define("SHIELD_MAXDAMAGE", 1000);
 
 		builder.pop();
 	}

@@ -15,7 +15,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: "com.wynprice.cursemaven"
 
-version = '1.2.0'
+version = '1.2.1'
 group = 'com.demmers.behgameon' 
 archivesBaseName = 'behgameon-1.15.2'
 

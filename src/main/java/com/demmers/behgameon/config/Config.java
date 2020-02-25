@@ -32,24 +32,24 @@ public class Config {
 		public ConfigValue<Integer> SHIELD_MAXDAMAGE;
 
 		ServerConfig(ForgeConfigSpec.Builder builder) {
-			builder.comment("Mine and Slash Compatibility").push("Mine and Slash Compatibility")
-					.translation("behgameon.config.use_compatibility_on_items");
-			USE_COMPATIBILITY_ON_ITEMS = builder.define("Enable", true);
-			builder.comment("Chest Loot Setting").push("Chest Loot Setting")
-					.translation("behgameon.config.use_chestlootsystem");
-			USE_CHESTLOOTSYSTEM = builder.define("Enable", true);
-			builder.comment("Mine and Slash Loot Setting").push("Mine and Slash Loot Setting")
-					.translation("behgameon.config.use_mineslashlootsystem");
-			USE_MINESLASHLOOTSYSTEM = builder.define("Enable", true);
-			builder.comment("Sets the max duriabily of Accessories").push("Sets the max duriabily of Accessories.")
-					.translation("behgameon.config.accessory_maxdamage");
-			ACCESSORY_MAXDAMAGE = builder.define("ACCESSORY_MAXDAMAGE", 1000);
-			builder.comment("Sets the max duriabily of Rings.").push("Sets the max duriabily of Rings.")
-					.translation("behgameon.config.ring_maxdamage");
-			RING_MAXDAMAGE = builder.define("RING_MAXDAMAGE", 1000);
-			builder.comment("Sets the max duriabily of Shields.").push("Sets the max duriabily of Shields.")
-					.translation("behgameon.config.shields_maxdamage");
-			SHIELD_MAXDAMAGE = builder.define("SHIELD_MAXDAMAGE", 1000);
+			builder.push("general");
+			USE_COMPATIBILITY_ON_ITEMS = builder.comment("Mine and Slash Compatibility")
+					.translation(BehgameonMod.MODID + ".config.use_compatibility_on_items")
+					.define("USE_COMPATIBILITY_ON_ITEMS", true);
+			USE_CHESTLOOTSYSTEM = builder.comment("Add loot to Chest loot system")
+					.translation(BehgameonMod.MODID + ".config.use_chestlootsystem")
+					.define("USE_CHESTLOOTSYSTEM", true);
+			USE_MINESLASHLOOTSYSTEM = builder.comment("Add loot to Mine and Slash Loot System")
+					.translation(BehgameonMod.MODID + ".config.use_mineslashlootsystem")
+					.define("USE_MINESLASHLOOTSYSTEM", true);
+			builder.pop();
+			builder.push("gear");
+			ACCESSORY_MAXDAMAGE = builder.comment("Staff Max Damage")
+					.translation(BehgameonMod.MODID + ".config.staff_maxdamage").define("ACCESSORY_MAXDAMAGE", 1000);
+			RING_MAXDAMAGE = builder.comment("Sword Max Damage")
+					.translation(BehgameonMod.MODID + ".config.sword_maxdamage").define("RING_MAXDAMAGE", 1000);
+			SHIELD_MAXDAMAGE = builder.comment("Bow SHIELD_MAXDAMAGE Damage")
+					.translation(BehgameonMod.MODID + ".config.bow_maxdamage").define("SHIELD_MAXDAMAGE", 1000);
 			builder.pop();
 		}
 	}

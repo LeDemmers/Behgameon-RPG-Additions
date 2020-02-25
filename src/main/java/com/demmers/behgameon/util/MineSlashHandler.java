@@ -8,6 +8,7 @@ import com.robertx22.mine_and_slash.database.gearitemslots.curios.Bracelet;
 import com.robertx22.mine_and_slash.database.gearitemslots.curios.Charm;
 import com.robertx22.mine_and_slash.database.gearitemslots.curios.Necklace;
 import com.robertx22.mine_and_slash.database.gearitemslots.curios.Ring;
+import com.robertx22.mine_and_slash.database.gearitemslots.offhand.Shield;
 
 public class MineSlashHandler {
 
@@ -50,6 +51,9 @@ public class MineSlashHandler {
 		for (int i = 1; i <= 106; i++)
 			MineAndSlashAPI.addCompatibleItem(BehgameonMod.MODID + ":ring_" + i,
 					new ConfigItem().setType(Ring.INSTANCE).setSalvagable(Config.SERVER.USE_MINESLASHLOOTSYSTEM.get()));
+		for (int i = 1; i <= 15; i++)
+			MineAndSlashAPI.addCompatibleItem(BehgameonMod.MODID + ":shield" + i,
+					new ConfigItem().setType(Shield.INSTANCE).setSalvagable(Config.SERVER.USE_MINESLASHLOOTSYSTEM.get()));
 		BehgameonMod.LOGGER.info("Registered Everything with Mine and Slash");
 	}
 }

@@ -20,16 +20,15 @@ public class BehgameonItems {
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
 		for (int i = 1; i <= 56; i++)
 			event.getRegistry().registerAll(accessory_1 = new Item(new Item.Properties()
-					.group(BehgameonTabs.AccessoriesTabItemGroup).maxDamage(Config.INSTANCE.ACCESSORY_MAXDAMAGE.get()))
+					.group(BehgameonTabs.AccessoriesTabItemGroup).maxDamage(Config.SERVER.ACCESSORY_MAXDAMAGE.get()))
 							.setRegistryName(location("accessory_" + i)));
 		for (int i = 1; i <= 106; i++)
 			event.getRegistry().register(new Item(new Item.Properties().group(BehgameonTabs.AccessoriesTabItemGroup)
-					.maxDamage(Config.INSTANCE.RING_MAXDAMAGE.get())).setRegistryName(location("ring_" + i)));
+					.maxDamage(Config.SERVER.RING_MAXDAMAGE.get())).setRegistryName(location("ring_" + i)));
 		for (int i = 1; i <= 15; i++)
 			event.getRegistry()
 					.register(shield = new ShieldItem(new Item.Properties().group(BehgameonTabs.WeaponTabItemGroup)
-							.maxDamage(Config.INSTANCE.SHIELD_MAXDAMAGE.get()))
-									.setRegistryName(location("shield" + i)));
+							.maxDamage(Config.SERVER.SHIELD_MAXDAMAGE.get())).setRegistryName(location("shield" + i)));
 		BehgameonMod.LOGGER.info("All Items registered.");
 	}
 

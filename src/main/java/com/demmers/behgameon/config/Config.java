@@ -24,43 +24,33 @@ public class Config {
 	}
 
 	public static class ServerConfig {
-		public final BooleanValue USE_COMPATIBILITY_ON_ITEMS;
 		public final BooleanValue USE_CHESTLOOTSYSTEM;
-		public final BooleanValue USE_MINESLASHLOOTSYSTEM;
 		public ConfigValue<Integer> ACCESSORY_MAXDAMAGE;
 		public ConfigValue<Integer> RING_MAXDAMAGE;
 		public ConfigValue<Integer> SHIELD_MAXDAMAGE;
 
 		ServerConfig(ForgeConfigSpec.Builder builder) {
 			builder.push("general");
-			USE_COMPATIBILITY_ON_ITEMS = builder.comment("Mine and Slash Compatibility")
-					.translation(BehgameonMod.MODID + ".config.use_compatibility_on_items")
-					.define("USE_COMPATIBILITY_ON_ITEMS", true);
 			USE_CHESTLOOTSYSTEM = builder.comment("Add loot to Chest loot system")
 					.translation(BehgameonMod.MODID + ".config.use_chestlootsystem")
 					.define("USE_CHESTLOOTSYSTEM", true);
-			USE_MINESLASHLOOTSYSTEM = builder.comment("Add loot to Mine and Slash Loot System")
-					.translation(BehgameonMod.MODID + ".config.use_mineslashlootsystem")
-					.define("USE_MINESLASHLOOTSYSTEM", true);
 			builder.pop();
 			builder.push("gear");
-			ACCESSORY_MAXDAMAGE = builder.comment("Staff Max Damage")
-					.translation(BehgameonMod.MODID + ".config.staff_maxdamage").define("ACCESSORY_MAXDAMAGE", 1000);
-			RING_MAXDAMAGE = builder.comment("Sword Max Damage")
-					.translation(BehgameonMod.MODID + ".config.sword_maxdamage").define("RING_MAXDAMAGE", 1000);
-			SHIELD_MAXDAMAGE = builder.comment("Bow SHIELD_MAXDAMAGE Damage")
-					.translation(BehgameonMod.MODID + ".config.bow_maxdamage").define("SHIELD_MAXDAMAGE", 1000);
+			ACCESSORY_MAXDAMAGE = builder.comment("Accessory Max Damage")
+					.translation(BehgameonMod.MODID + ".config.accessory_maxdamage")
+					.define("ACCESSORY_MAXDAMAGE", 1000);
+			RING_MAXDAMAGE = builder.comment("Ring Max Damage")
+					.translation(BehgameonMod.MODID + ".config.ring_maxdamage").define("RING_MAXDAMAGE", 1000);
+			SHIELD_MAXDAMAGE = builder.comment("Shield Damage")
+					.translation(BehgameonMod.MODID + ".config.shild_maxdamage").define("SHIELD_MAXDAMAGE", 1000);
 			builder.pop();
 		}
 	}
 
 	public static void loadConfig(ForgeConfigSpec config, String path) {
-		BehgameonMod.LOGGER.info("Loading config: " + path);
 		final CommentedFileConfig file = CommentedFileConfig.builder(new File(path)).sync().autosave()
 				.writingMode(WritingMode.REPLACE).build();
-		BehgameonMod.LOGGER.info("Built config: " + path);
 		file.load();
-		BehgameonMod.LOGGER.info("Loaded config: " + path);
 		config.setConfig(file);
 	}
 }

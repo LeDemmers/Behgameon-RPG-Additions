@@ -1,5 +1,6 @@
 modLoader="javafml"
-loaderVersion="[31,)"
+loaderVersion="[33,)"
+license="MIT"
 [[mods]]
 modId="behgameon"
 version="${file.jarVersion}"

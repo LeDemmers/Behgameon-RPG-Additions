@@ -17,7 +17,7 @@ apply plugin: "com.wynprice.cursemaven"
 
 version = '1.0.0'
 group = 'com.demmers.behgameon' 
-archivesBaseName = 'behgameon-1.16.2'
+archivesBaseName = 'behgameon-1.16.3'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
@@ -71,7 +71,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.2-33.0.32'
+    minecraft 'net.minecraftforge:forge:1.16.3-34.0.0'
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.2-4.0.0.1")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.2-4.0.0.1:api")
 }
